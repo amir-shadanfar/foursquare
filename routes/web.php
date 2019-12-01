@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'Api'], function () {
+    Route::get('/', 'FoursquareController@getCategories')->name('foursquare.categories');
+    Route::post('/get-info', 'FoursquareController@getInfo')->name('foursquare.getInfo');
 });
